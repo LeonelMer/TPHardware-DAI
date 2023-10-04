@@ -1,1 +1,3 @@
-
+Contactos:
+Pantalla de visualización de todos los Contactos del Teléfono utilizando la FlatList.
+Se debe mostrar el Nombre y Apellido / Número telefónico y un indic
