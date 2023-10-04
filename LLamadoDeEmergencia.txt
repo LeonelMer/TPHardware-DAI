@@ -1,3 +1,0 @@
-Llamado de Emergencia:
-Cuando en la pantalla principal se sacuda rápidamente (sensores / accelerometer) se debe
-enviar un SMS/Mensaje vía WhatsApp al número configurado para tal fin.
