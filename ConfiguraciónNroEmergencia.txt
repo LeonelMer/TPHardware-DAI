@@ -1,1 +1,5 @@
+Configuración de Nro. Emergencia
+Pantalla de configuración de Número telefónico de emergencia/aviso: Esta pantalla debe poder
+configurarse un número de teléfono válido. El mismo se almacena en el LocalStorage del
+dispositivo.
 
