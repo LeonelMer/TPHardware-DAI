@@ -5,12 +5,15 @@ import { TouchableOpacity,ScrollView, StyleSheet } from "react-native";
 import { format } from 'date-fns';
 import { useContextState } from "../../../ContextState.js";
 import * as Location from 'expo-location';
+import axios from 'axios'
+
 
 const Temp = ({ navigation}) => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-  const [location, setLocation] = useState(null);
+  const [weather, setWeather] = useState({});
   //3707031863044c7ab91145609230610 apikey
   //https://www.weatherapi.com/docs/
+  //https://api.weatherapi.com/v1/current.json?key=3707031863044c7ab91145609230610&q=51.5085300,-0.1257400
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -32,7 +35,14 @@ const Temp = ({ navigation}) => {
       try {
         // Obtener la ubicación actual
         const location = await Location.getCurrentPositionAsync({});
-        setLocation(location);
+        axios.get('https://api.weatherapi.com/v1/current.json?key=3707031863044c7ab91145609230610&q=' + location.coords.latitude + "," + location.coords.longitude)
+        .then((response)=> {
+          console.log(response.data.current.temp_c);
+          setWeather(response.data.current.temp_c);
+        })
+        .catch((error) =>{
+          console.log(error);
+        })
       } catch (error) {
         console.error('Error al obtener la ubicación:', error);
       }
@@ -40,15 +50,15 @@ const Temp = ({ navigation}) => {
   }, []);
 
     return (
-        <View>
-            <TouchableOpacity onPress={()=>{navigation.goback()}}><Text>Volver</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
+        <ScrollView>
+          <Text>.</Text>
+          <Text>.</Text>
+          <Text>.</Text>
+            <TouchableOpacity onPress={()=>{navigation.goback();}}><Text>Volver</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
             <Text>Fecha y hora actual: {format(currentDateTime, 'yyyy-MM-dd HH:mm:ss')}</Text>
-            {location && location.coords ? (
-              <Text>Latitud: {location.coords.latitude}, Longitud: {location.coords.longitude}</Text>
-              ) : (<Text>Obteniendo ubicación...</Text>
-            )}
+            <Text>Temperatura actual: {weather} grados celcius</Text>
 
-        </View>
+        </ScrollView>
     )
 }
 

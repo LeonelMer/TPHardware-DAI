@@ -11,7 +11,7 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity><Text>Contactos</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
+      <TouchableOpacity onPress={()=>{navigation.navigate('Contacts')}}><Text>Contactos</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
       <TouchableOpacity onPress={()=>{navigation.navigate('Temp')}}><Text>Hora Actual</Text></TouchableOpacity>
       {/*agregar identificacion de cada aplicacion*/}
     </View>

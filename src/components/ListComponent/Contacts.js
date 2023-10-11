@@ -1,15 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { View, Image, Text } from "react-native";
-import { getDishes } from "../../services/omdbService";
 import { ListComponentStyle } from "./styles";
 import { TouchableOpacity, ScrollView, StyleSheet } from "react-native";
-import Info from './Emergency';
+import * as Con from 'expo-contacts';
 
 const Contacts = ({ navigation }) => {
+    const [contacts, setContacts] = useState([]);
+
+    useEffect(() => {
+        const loadContacts = async () => {
+        const { status } = await Con.requestPermissionsAsync();
+        if (status !== 'granted') {
+            console.log('Permiso de acceso a los contactos denegado');
+            return;
+        }
+        const { data } = await Con.getContactsAsync({
+            fields: [Con.Fields.Name, Con.Fields.PhoneNumbers],
+        });
+        if (data.length > 0) {
+            setContacts(data);
+        }
+        };
+        loadContacts();
+    }, []);
+
     return (
-        <View style={ListComponentStyle.container}>
-            
-        </ View >
+        <ScrollView style={ListComponentStyle.container}>
+            <Text>.</Text>
+          <Text>.</Text>
+          <Text>.</Text>
+            <TouchableOpacity onPress={()=>{navigation.goback();}}><Text>Volver</Text></TouchableOpacity>
+            <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Lista de Contactos:</Text>
+            {contacts.length > 0 ? 
+                (contacts.map((contact, index) => (
+                    <View key={index}>
+                        <Text>Nombre: {contact.name}</Text>
+                        {contact.phoneNumbers &&
+                        contact.phoneNumbers.map((phoneNumber, i) => (
+                        <Text key={i}>Teléfono: {phoneNumber.number}</Text>))}
+                    </View>))) : (<Text>No se encontraron contactos.</Text>
+                )
+            }
+        </ ScrollView >
     )
 }
 
