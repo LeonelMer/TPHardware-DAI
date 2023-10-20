@@ -3,7 +3,6 @@ import { View, Image, Text} from "react-native";
 import { ListComponentStyle } from "./styles";
 import { TouchableOpacity,ScrollView, StyleSheet } from "react-native";
 import { format } from 'date-fns';
-import { useContextState } from "../../../ContextState.js";
 import * as Location from 'expo-location';
 import axios from 'axios'
 
