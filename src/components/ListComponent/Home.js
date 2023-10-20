@@ -13,6 +13,7 @@ const Home = ({navigation}) => {
     <View style={styles.container}>
       <TouchableOpacity onPress={()=>{navigation.navigate('Contacts')}}><Text>Contactos</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
       <TouchableOpacity onPress={()=>{navigation.navigate('Temp')}}><Text>Hora Actual</Text></TouchableOpacity>
+      <TouchableOpacity onPress={()=>{navigation.navigate('Emergency')}}><Text>Llamado de emergencia</Text></TouchableOpacity>
       {/*agregar identificacion de cada aplicacion*/}
     </View>
   );

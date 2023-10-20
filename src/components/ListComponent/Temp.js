@@ -10,7 +10,7 @@ import axios from 'axios'
 
 const Temp = ({ navigation}) => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState();
   //3707031863044c7ab91145609230610 apikey
   //https://www.weatherapi.com/docs/
   //https://api.weatherapi.com/v1/current.json?key=3707031863044c7ab91145609230610&q=51.5085300,-0.1257400
@@ -54,7 +54,7 @@ const Temp = ({ navigation}) => {
           <Text>.</Text>
           <Text>.</Text>
           <Text>.</Text>
-            <TouchableOpacity onPress={()=>{navigation.goback();}}><Text>Volver</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
+            <TouchableOpacity onPress={()=>{navigation.goBack();}}><Text>Volver</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
             <Text>Fecha y hora actual: {format(currentDateTime, 'yyyy-MM-dd HH:mm:ss')}</Text>
             <Text>Temperatura actual: {weather} grados celcius</Text>
 

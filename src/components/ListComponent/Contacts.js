@@ -29,7 +29,7 @@ const Contacts = ({ navigation }) => {
             <Text>.</Text>
           <Text>.</Text>
           <Text>.</Text>
-            <TouchableOpacity onPress={()=>{navigation.goback();}}><Text>Volver</Text></TouchableOpacity>
+            <TouchableOpacity onPress={()=>{navigation.goBack();}}><Text>Volver</Text></TouchableOpacity>
             <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Lista de Contactos:</Text>
             {contacts.length > 0 ? 
                 (contacts.map((contact, index) => (
