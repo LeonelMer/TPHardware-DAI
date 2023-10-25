@@ -5,6 +5,8 @@ import Emergency from './src/components/ListComponent/Emergency';
 import  QR from './src/components/ListComponent/QR';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ContextProvider } from './src/components/ListComponent/ContextProvider';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
