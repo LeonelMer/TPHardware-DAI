@@ -11,12 +11,15 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={()=>{navigation.navigate('Contacts')}}><Text>Contactos</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
-      <TouchableOpacity onPress={()=>{navigation.navigate('Temp')}}><Text>Hora Actual</Text></TouchableOpacity>
-      <TouchableOpacity onPress={()=>{navigation.navigate('Emergency')}}><Text>Llamado de emergencia</Text></TouchableOpacity>
-      <TouchableOpacity onPress={()=>{navigation.navigate('QR')}}><Text>Llamado de emergencia</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Contacts')}}><Text style={styles.buttonText}>Contactos</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
+      <Text></Text>
+      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Temp')}}><Text style={styles.buttonText}>Hora Actual</Text></TouchableOpacity>
+      <Text></Text>
+      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Emergency')}}><Text style={styles.buttonText}>Llamado de emergencia</Text></TouchableOpacity>
+      <Text></Text>
+      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('QR')}}><Text style={styles.buttonText}>Código QR</Text></TouchableOpacity>
       {/*agregar identificacion de cada aplicacion*/}
-    </View>
+    </View> 
   );
   }
 
@@ -25,7 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff0db',
+    backgroundColor: '#acd3c5',
   },
   title: {
     fontSize: 24,
@@ -43,17 +46,18 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   button: {
-    backgroundColor: '#6fa042',
+    backgroundColor: '#b3f39e',
     padding: 10,
     borderRadius: 5,
   },
   buttonText: {
-    color: 'white',
+    color: '#000000'  ,
     fontWeight: 'bold',
   },
   warning:{
     color: 'crimson'
-  }
+  },
+  
   
 });
 
