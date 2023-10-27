@@ -49,13 +49,13 @@ const Temp = ({ navigation}) => {
   }, []);
 
     return (
-        <ScrollView>
-          <Text>.</Text>
-          <Text>.</Text>
-          <Text>.</Text>
-            <TouchableOpacity onPress={()=>{navigation.goBack();}}><Text>Volver</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
+        <ScrollView style={ListComponentStyle.container}>
+          <Text></Text>
+          <Text></Text>
+          
+            <TouchableOpacity onPress={()=>{navigation.goBack();}}><Image style={styles.flecha} source={require('../../../assets/flechita.png')}></Image></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
             <Text>Fecha y hora actual: {format(currentDateTime, 'yyyy-MM-dd HH:mm:ss')}</Text>
-            <Text>Temperatura actual: {weather} grados celcius</Text>
+            <Text style={styles.Temperatura}>Temperatura actual: {weather} grados celcius</Text>
 
         </ScrollView>
     )
@@ -73,45 +73,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 20, 
     },
-    Precio:{
-        color: '#6fa042',
-        fontSize: 20,
-        fontWeight: 'bold',
-      },
-      Vegano:{
-        color: '#6fa042',
-        fontWeight: 'bold',
-        fontSize: 20,
-      },
-      ViewcitaEnLinea:{
-        flexDirection: "row",
-      },
-      HealthScore: {
-        color: '#a0d150',
-        fontWeight: 'bold',
-        fontSize: 20, 
-      },
-      NombrePlato:{
-        fontWeight: 'bold',
-        fontSize: 20, 
-        textAlign: 'center',
-      },
-      button: {
-        backgroundColor: '#6fa042',
-        padding: 10,
-        borderRadius: 5,
-        width: '40%',
-        
-      },
-      buttonText: {
-        color: 'white',
-        fontWeight: 'bold',
-        textAlign: 'center',
-        width: '100%',
-      },
-      ContenedorBoton: {
-        alignItems: 'center',
-      },
+    Temperatura:{
+      backgroundColor: '#F7C59F',
+    },
       flecha: {
         width: 50,
         height: 50,

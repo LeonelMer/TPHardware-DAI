@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Image, Text } from "react-native";
+import { View, Image, Text, FlatList } from "react-native";
 import { ListComponentStyle } from "./styles";
 import { TouchableOpacity, ScrollView, StyleSheet } from "react-native";
 import * as Con from 'expo-contacts';
@@ -26,21 +26,27 @@ const Contacts = ({ navigation }) => {
 
     return (
         <ScrollView style={ListComponentStyle.container}>
-            <Text>.</Text>
-          <Text>.</Text>
-          <Text>.</Text>
-            <TouchableOpacity onPress={()=>{navigation.goBack();}}><Text>Volver</Text></TouchableOpacity>
-            <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Lista de Contactos:</Text>
+            <Text></Text>
+            <TouchableOpacity onPress={()=>{navigation.goBack();}}><Image style={styles.flecha} source={require('../../../assets/flechita.png')}></Image></TouchableOpacity>
+            <Text></Text>
+            <Text style={styles.ListaContactos}>Lista de Contactos</Text>
+            <Text></Text>
+            
             {contacts.length > 0 ? 
                 (contacts.map((contact, index) => (
                     <View key={index}>
+                        
+                        <View style={styles.ListaContactos}>
                         <Text>Nombre: {contact.name}</Text>
+                        </View>
                         {contact.phoneNumbers &&
                         contact.phoneNumbers.map((phoneNumber, i) => (
                         <Text key={i}>Teléfono: {phoneNumber.number}</Text>))}
+                        
                     </View>))) : (<Text>No se encontraron contactos.</Text>
                 )
             }
+            
         </ ScrollView >
     )
 }
@@ -50,29 +56,24 @@ export default Contacts;
 const styles = StyleSheet.create({
     container: {
         
-        backgroundColor: '#fff0db',
+        backgroundColor: '#FDF0D5',
     },
     loadingContainer: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor:'#fff0db',
+        backgroundColor:'#FDF0D5',
         alignItems: 'center',
     },
-    loadingText: {
-        fontSize: 20,
+    ListaContactos:{
+        fontSize: 25, 
         fontWeight: 'bold',
+        textAlign: 'center',
     },
-    Titulo:{
-        textAlign: "center",
-        fontWeight: 'bold',
-        fontSize: 50,
-        textDecorationLine: "underline",
-    },
-    PrecioTotal:{
-        fontWeight: 'bold',
-        textDecorationLine: "underline",
-        fontSize: 10,  
-    }
+    flecha: {
+        width: 35,
+        height: 35,
+      }
+
 });
 
 

@@ -11,13 +11,13 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Contacts')}}><Text style={styles.buttonText}>Contactos</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
+      <TouchableOpacity style={styles.buttonContactos} onPress={()=>{navigation.navigate('Contacts')}}><Text style={styles.buttonText}>Contactos</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
       <Text></Text>
-      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Temp')}}><Text style={styles.buttonText}>Hora Actual</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.buttonActual} onPress={()=>{navigation.navigate('Temp')}}><Text style={styles.buttonText}>Hora Actual</Text></TouchableOpacity>
       <Text></Text>
-      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Emergency')}}><Text style={styles.buttonText}>Llamado de emergencia</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.buttonLlamadoEmergencia} onPress={()=>{navigation.navigate('Emergency')}}><Text style={styles.buttonText}>Llamado de emergencia</Text></TouchableOpacity>
       <Text></Text>
-      <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('QR')}}><Text style={styles.buttonText}>Código QR</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.buttonQR} onPress={()=>{navigation.navigate('QR')}}><Text style={styles.buttonText}>Código QR</Text></TouchableOpacity>
       {/*agregar identificacion de cada aplicacion*/}
     </View> 
   );
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#acd3c5',
+    backgroundColor: '#FDF0D5', 
   },
   title: {
     fontSize: 24,
@@ -45,13 +45,28 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     padding: 10,
   },
-  button: {
-    backgroundColor: '#b3f39e',
+  buttonContactos: {
+    backgroundColor: '#F7C59F',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonActual: {
+    backgroundColor: '#C6DABF',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonLlamadoEmergencia: {
+    backgroundColor: '#9ABAD9',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonQR: {
+    backgroundColor: '#E8B4BC',
     padding: 10,
     borderRadius: 5,
   },
   buttonText: {
-    color: '#000000'  ,
+    color: '#3b230d'  ,
     fontWeight: 'bold',
   },
   warning:{
