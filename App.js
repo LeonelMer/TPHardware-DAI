@@ -5,13 +5,11 @@ import Emergency from './src/components/ListComponent/Emergency';
 import  QR from './src/components/ListComponent/QR';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ContextProvider } from './src/components/ListComponent/ContextProvider';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <ContextProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home" component={Home} /> 
@@ -21,6 +19,5 @@ export default function App() {
           <Stack.Screen name="QR" component={QR} />
         </Stack.Navigator>
       </NavigationContainer>
-    </ContextProvider>
   );
 };

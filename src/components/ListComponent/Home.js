@@ -17,7 +17,6 @@ const Home = ({navigation}) => {
       <Text></Text>
       <TouchableOpacity style={styles.buttonLlamadoEmergencia} onPress={()=>{navigation.navigate('Emergency')}}><Text style={styles.buttonText}>Llamado de emergencia</Text></TouchableOpacity>
       <Text></Text>
-      <TouchableOpacity style={styles.buttonQR} onPress={()=>{navigation.navigate('QR')}}><Text style={styles.buttonText}>Código QR</Text></TouchableOpacity>
       {/*agregar identificacion de cada aplicacion*/}
     </View> 
   );

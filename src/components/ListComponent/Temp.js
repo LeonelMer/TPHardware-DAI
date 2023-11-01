@@ -24,7 +24,6 @@ const Temp = ({ navigation}) => {
     (async () => {
       // Solicitar permisos de ubicación
       const { status } = await Location.requestForegroundPermissionsAsync();
-      console.log('Estado de permiso:', status);
 
       if (status !== 'granted') {
         console.error('Permiso de ubicación denegado');
@@ -36,7 +35,6 @@ const Temp = ({ navigation}) => {
         const location = await Location.getCurrentPositionAsync({});
         axios.get('https://api.weatherapi.com/v1/current.json?key=3707031863044c7ab91145609230610&q=' + location.coords.latitude + "," + location.coords.longitude)
         .then((response)=> {
-          console.log(response.data.current.temp_c);
           setWeather(response.data.current.temp_c);
         })
         .catch((error) =>{
@@ -54,6 +52,7 @@ const Temp = ({ navigation}) => {
           <Text></Text>
           
             <TouchableOpacity onPress={()=>{navigation.goBack();}}><Image style={styles.flecha} source={require('../../../assets/flechita.png')}></Image></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
+            <TouchableOpacity style={styles.buttonQR} onPress={()=>{navigation.navigate('QR')}}><Text style={styles.buttonText}>Acerca De</Text></TouchableOpacity>
             <Text>Fecha y hora actual: {format(currentDateTime, 'yyyy-MM-dd HH:mm:ss')}</Text>
             <Text style={styles.Temperatura}>Temperatura actual: {weather} grados celcius</Text>
 

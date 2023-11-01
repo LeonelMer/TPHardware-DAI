@@ -29,6 +29,7 @@ const Contacts = ({ navigation }) => {
             <Text></Text>
             <TouchableOpacity onPress={()=>{navigation.goBack();}}><Image style={styles.flecha} source={require('../../../assets/flechita.png')}></Image></TouchableOpacity>
             <Text></Text>
+            <TouchableOpacity style={styles.buttonQR} onPress={()=>{navigation.navigate('QR')}}><Text style={styles.buttonText}>Acerca De</Text></TouchableOpacity>
             <Text style={styles.ListaContactos}>Lista de Contactos</Text>
             <Text></Text>
             

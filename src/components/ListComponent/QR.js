@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { View, Image, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
-import * as SMS from 'expo-sms';
-import { Accelerometer } from 'expo-sensors';
 
 const QR =({ navigation })=> {
   return (

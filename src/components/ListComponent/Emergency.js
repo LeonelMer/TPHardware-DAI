@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Button, StyleSheet, TouchableOpacity, ScrollView, Image, StatusBar } from 'react-native';
 import * as SMS from 'expo-sms';
 import { Accelerometer } from 'expo-sensors';
 
@@ -36,7 +36,7 @@ const Emergency=({ navigation })=> {
 
     if (isAvailable) {
       const { result } = await SMS.sendSMSAsync(
-        ['25359019'], // Reemplaza con el número de teléfono al que deseas enviar el SMS
+        ['5491125359019'], // Reemplaza con el número de teléfono al que deseas enviar el SMS
         '¡Emergencia! Necesito ayuda.'
       );
 
@@ -51,18 +51,20 @@ const Emergency=({ navigation })=> {
   };
 
   return (
-    <View style={styles.container}>
-      <Text>.</Text>
-      <Text>.</Text>
-      <Text>.</Text>
-      <TouchableOpacity onPress={()=>{navigation.goBack();}}><Text>Volver</Text></TouchableOpacity>
+    <ScrollView style={styles.ContactScrollView}>
+      <TouchableOpacity onPress={()=>{navigation.goBack();}}><Image style={styles.flecha} source={require('../../../assets/flechita.png')}></Image></TouchableOpacity>
+    <View style={styles.container}> 
+      <Text></Text>
+      
+      <TouchableOpacity style={styles.buttonQR} onPress={()=>{navigation.navigate('QR')}}><Text style={styles.buttonText}>Acerca De</Text></TouchableOpacity>
       <Text style={styles.title}>Llamado de Emergencia</Text>
       {isShaking ? (
         <Text style={styles.message}>¡Se ha detectado una sacudida rápida! Se ha enviado un SMS de emergencia.</Text>
       ) : (
         <Text style={styles.message}>Sacude el dispositivo para activar la llamada de emergencia.</Text>
       )}
-    </View>
+    </View> 
+    </ScrollView>
   );
 }
 export default Emergency;
@@ -81,4 +83,17 @@ const styles = StyleSheet.create({
   message: {
     fontSize: 18,
   },
+  flecha: {
+    width: 35,
+    height: 35,
+  },
+  ContactScrollView:{
+    
+      marginTop: StatusBar.currentHeight || 0,
+      backgroundColor:'#fff0db',
+      position: 'static',
+      height: "75%", //Esto es lo que hay que cambiar para que se vea el loading + el fondo del mismo colo (Si no es height es width)
+  
+  }
+
 });
