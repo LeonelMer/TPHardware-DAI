@@ -52,9 +52,9 @@ const Temp = ({ navigation}) => {
           <Text></Text>
           
             <TouchableOpacity onPress={()=>{navigation.goBack();}}><Image style={styles.flecha} source={require('../../../assets/flechita.png')}></Image></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
-            <TouchableOpacity style={styles.buttonQR} onPress={()=>{navigation.navigate('QR')}}><Text style={styles.buttonText}>Acerca De</Text></TouchableOpacity>
-            <Text>Fecha y hora actual: {format(currentDateTime, 'yyyy-MM-dd HH:mm:ss')}</Text>
-            <Text style={styles.Temperatura}>Temperatura actual: {weather} grados celcius</Text>
+            <Text style={styles.Fecha}>Fecha y hora actual</Text><Text></Text><Text style={styles.Tiempo}>{format(currentDateTime, 'yyyy-MM-dd HH:mm:ss')}</Text>
+            <Text></Text>
+            <Text style={styles.Fecha}>Temperatura actual: {weather}° C</Text>
 
         </ScrollView>
     )
@@ -72,12 +72,19 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 20, 
     },
-    Temperatura:{
-      backgroundColor: '#F7C59F',
-    },
       flecha: {
         width: 50,
         height: 50,
-      }
+      },
+    Fecha:{
+      fontSize: 25, 
+      fontWeight: 'bold',
+      textAlign: 'center',
+    },
+    Tiempo:{
+      fontSize: 25, 
+      fontWeight: 'bold',
+      textAlign: 'center',
+    }
 
   });

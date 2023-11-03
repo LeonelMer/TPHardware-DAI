@@ -29,7 +29,6 @@ const Contacts = ({ navigation }) => {
             <Text></Text>
             <TouchableOpacity onPress={()=>{navigation.goBack();}}><Image style={styles.flecha} source={require('../../../assets/flechita.png')}></Image></TouchableOpacity>
             <Text></Text>
-            <TouchableOpacity style={styles.buttonQR} onPress={()=>{navigation.navigate('QR')}}><Text style={styles.buttonText}>Acerca De</Text></TouchableOpacity>
             <Text style={styles.ListaContactos}>Lista de Contactos</Text>
             <Text></Text>
             
@@ -38,16 +37,21 @@ const Contacts = ({ navigation }) => {
                     <View key={index}>
                         
                         <View style={styles.ListaContactos}>
+                        <View style={styles.Fondo}>
                         <Text>Nombre: {contact.name}</Text>
+                        
                         </View>
+                        
+                        </View>
+                        
                         {contact.phoneNumbers &&
                         contact.phoneNumbers.map((phoneNumber, i) => (
-                        <Text key={i}>Teléfono: {phoneNumber.number}</Text>))}
+                        <Text style={styles.Telefono} key={i}>Teléfono: {phoneNumber.number}</Text>))}
+                        <Text></Text>
                         
                     </View>))) : (<Text>No se encontraron contactos.</Text>
                 )
             }
-            
         </ ScrollView >
     )
 }
@@ -73,7 +77,14 @@ const styles = StyleSheet.create({
     flecha: {
         width: 35,
         height: 35,
-      }
+      },
+    Fondo:{
+        backgroundColor: '#cecece'
+    },
+    Telefono:{
+        backgroundColor: '#ffffff'
+    }
+
 
 });
 

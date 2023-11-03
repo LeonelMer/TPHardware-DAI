@@ -11,12 +11,15 @@ const Home = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.Titulo}>Kogan Studios</Text>
+      <Text></Text>
       <TouchableOpacity style={styles.buttonContactos} onPress={()=>{navigation.navigate('Contacts')}}><Text style={styles.buttonText}>Contactos</Text></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
       <Text></Text>
       <TouchableOpacity style={styles.buttonActual} onPress={()=>{navigation.navigate('Temp')}}><Text style={styles.buttonText}>Hora Actual</Text></TouchableOpacity>
       <Text></Text>
       <TouchableOpacity style={styles.buttonLlamadoEmergencia} onPress={()=>{navigation.navigate('Emergency')}}><Text style={styles.buttonText}>Llamado de emergencia</Text></TouchableOpacity>
       <Text></Text>
+      <TouchableOpacity style={styles.buttonQR} onPress={()=>{navigation.navigate('QR')}}><Text style={styles.buttonText}>Acerca De</Text></TouchableOpacity>
       {/*agregar identificacion de cada aplicacion*/}
     </View> 
   );
@@ -60,7 +63,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   buttonQR: {
-    backgroundColor: '#E8B4BC',
+    backgroundColor: '#ccadc4',
     padding: 10,
     borderRadius: 5,
   },
@@ -71,6 +74,11 @@ const styles = StyleSheet.create({
   warning:{
     color: 'crimson'
   },
+  Titulo:{
+    fontSize: 25, 
+        fontWeight: 'bold',
+        textAlign: 'center',
+  }
   
   
 });

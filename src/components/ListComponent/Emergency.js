@@ -9,7 +9,7 @@ const Emergency=({ navigation })=> {
   useEffect(() => {
     const accelerometerObservable = Accelerometer.addListener(({ x, y, z }) => {
       const acceleration = Math.sqrt(x * x + y * y + z * z);
-      if (acceleration > 10) {
+      if (acceleration > 2) {
         setIsShaking(true);
         enviarMensajeSMS();
       }
@@ -56,7 +56,6 @@ const Emergency=({ navigation })=> {
     <View style={styles.container}> 
       <Text></Text>
       
-      <TouchableOpacity style={styles.buttonQR} onPress={()=>{navigation.navigate('QR')}}><Text style={styles.buttonText}>Acerca De</Text></TouchableOpacity>
       <Text style={styles.title}>Llamado de Emergencia</Text>
       {isShaking ? (
         <Text style={styles.message}>¡Se ha detectado una sacudida rápida! Se ha enviado un SMS de emergencia.</Text>
