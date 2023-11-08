@@ -52,6 +52,7 @@ const Emergency=({ navigation })=> {
 
   return (
     <ScrollView style={styles.ContactScrollView}>
+      <Text></Text>
       <TouchableOpacity onPress={()=>{navigation.goBack();}}><Image style={styles.flecha} source={require('../../../assets/flechita.png')}></Image></TouchableOpacity>
     <View style={styles.container}> 
       <Text></Text>

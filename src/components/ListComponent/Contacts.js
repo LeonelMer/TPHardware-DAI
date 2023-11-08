@@ -38,7 +38,7 @@ const Contacts = ({ navigation }) => {
                         
                         <View style={styles.ListaContactos}>
                         <View style={styles.Fondo}>
-                        <Text>Nombre: {contact.name}</Text>
+                        <Text style={styles.titleTelefono}>Nombre: {contact.name}</Text>
                         
                         </View>
                         
@@ -83,7 +83,11 @@ const styles = StyleSheet.create({
     },
     Telefono:{
         backgroundColor: '#ffffff'
-    }
+    },
+    titleTelefono: {
+        fontSize: 15,
+        fontWeight: 'bold', 
+    },
 
 
 });

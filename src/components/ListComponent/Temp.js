@@ -52,9 +52,21 @@ const Temp = ({ navigation}) => {
           <Text></Text>
           
             <TouchableOpacity onPress={()=>{navigation.goBack();}}><Image style={styles.flecha} source={require('../../../assets/flechita.png')}></Image></TouchableOpacity>{/*desde contactos se accede a configuracion de numero de emergencia*/}
-            <Text style={styles.Fecha}>Fecha y hora actual</Text><Text></Text><Text style={styles.Tiempo}>{format(currentDateTime, 'yyyy-MM-dd HH:mm:ss')}</Text>
             <Text></Text>
-            <Text style={styles.Fecha}>Temperatura actual: {weather}° C</Text>
+            <Text></Text>
+            <Text style={styles.Fecha}>Fecha y hora actual</Text><Text></Text>
+            <View style={styles.Lol}>
+            <View style={styles.ContenedorDate}>
+            <Text style={styles.Tiempo}>{format(currentDateTime, 'yyyy-MM-dd HH:mm:ss')}</Text>
+            </View>
+            </View>
+            <Text></Text>
+            <View style={styles.Lol}>
+            <View style={styles.ContenedorTemp}>
+            <Text></Text>
+            <Text style={styles.TemperaturaTexto}>Temperatura actual</Text><Text></Text><Text></Text><Text style={styles.Fecha}> {weather}° C</Text>
+            </View>
+            </View>
 
         </ScrollView>
     )
@@ -73,8 +85,8 @@ const styles = StyleSheet.create({
         fontSize: 20, 
     },
       flecha: {
-        width: 50,
-        height: 50,
+        width: 35,
+        height: 35,
       },
     Fecha:{
       fontSize: 25, 
@@ -85,6 +97,32 @@ const styles = StyleSheet.create({
       fontSize: 25, 
       fontWeight: 'bold',
       textAlign: 'center',
+      flexDirection: "row"
+    },
+    ContenedorTemp: {
+      borderRadius: 10,
+      width:200,
+      height: 200,
+      alignItems: 'center',
+     
+      backgroundColor: '#ffffff',
+    },
+    Lol:{
+      alignItems: 'center',
+      justifyContent:'center',
+    },
+    TemperaturaTexto:{
+      fontSize: 20, 
+      fontWeight: 'bold',
+      textAlign: 'center',
+    },
+
+    ContenedorDate:{
+      borderRadius: 10,
+      width:300,
+      height: 35,
+      backgroundColor: '#C6DABF',
+      
     }
 
   });

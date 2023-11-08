@@ -44,10 +44,13 @@ export default function QR({navigation}) {
   // Return the View
   return (
     <ScrollView style={styles.ContactScrollView}>
+      <Text></Text>
+      
       <TouchableOpacity onPress={()=>{navigation.goBack();}}><Image style={styles.flecha} source={require('../../../assets/flechita.png')}></Image></TouchableOpacity>
       
 
     <View style={styles.container}>
+    <Text></Text>
     <Image style={styles.tinyLogo} source={require('../../../assets/Captura.png')}/> 
     <Text></Text>
       <View style={styles.barcodebox}>
@@ -84,8 +87,8 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
   flecha: {
-    width: 50,
-    height: 50,
+    width: 35,
+    height: 35,
   },
   ContendorQR:{
     alignItems: 'center',
